@@ -6,9 +6,6 @@ from flask import Blueprint, flash, g, redirect, render_template, request, sessi
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
-import connect2 as send
-import wip_main as wm
-
 import db
 import functools
 import numpy as np
