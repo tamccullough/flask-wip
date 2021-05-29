@@ -16,10 +16,10 @@ today = date.today().strftime('%Y-%m-%d')
 year = today[:4]
 
 
-wip = Flask(__name__, instance_relative_config=True)
-wip.config.from_mapping(
+app = Flask(__name__, instance_relative_config=True)
+app.config.from_mapping(
         SECRET_KEY='dev', # change to a random value later when deploying
-        DATABASE=os.path.join(wip.instance_path, 'main.sqlite'),
+        DATABASE=os.path.join(app.instance_path, 'main.sqlite'),
     )
 
 def send_email():
@@ -31,7 +31,7 @@ def send_email():
     except:
         pass
 
-@wip.context_processor
+@app.context_processor
 def inject_user():
     send_email()
 
@@ -48,7 +48,7 @@ def inject_user():
     theme_mode = session['theme'],theme = 'clean',year = year,
     )
 
-@wip.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def index():
     print( url_for(request.endpoint),' SESSION',session,'\n')
 
@@ -70,16 +70,16 @@ def index():
 
     landlst = df1, weblst = df2, dashlst = df3, datalst = df4, mllst = df5)
 
-@wip.route('/link', methods=['GET','POST'])
+@app.route('/link', methods=['GET','POST'])
 def link():
     return render_template('link.html')
 
-@wip.route('/about', methods=['GET','POST'])
+@app.route('/about', methods=['GET','POST'])
 def about():
     return render_template('about.html')
 
 
-db.init_app(wip)
+db.init_app(app)
 
 if __name__ == "__main__":
-    wip.run()
+    app.run()
