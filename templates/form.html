@@ -1,0 +1,30 @@
+<!-- email send form -->
+
+<dialog id="messageDialog" class="{{ theme }}-blue borderc modal">
+  <div>
+    <div class="spacerL"></div>
+    <h3 class="xfont" style="padding: 25px;"><b>Contact Us</b></h3>
+    {% if request.endpoint == 'index'%}
+    <form id="emailForm" method="post" action="/#bottom">
+    {% else %}
+    <form id="emailForm" method="post" action="/{{ request.endpoint }}#bottom">
+    {% endif %}
+    <div style="width:90%">
+        <div>
+          <label class="contact-label">Email:</label>
+          <input class="inputbox" type="text" id="email" name="email" />
+        </div>
+        <br>
+        <div>
+          <label class="contact-label">Message:</label>
+          <input class="inputbox" type="text" id="message" name="message"/>
+        </div>
+        <menu style="float:right;">
+          <button class="{{ theme }}-action button" id="sendBtn" value="sent">send</button>
+          <br>
+          <button class="{{ theme }}-action button" id="cancelBtn" value="cancel">cancel</button>
+        </menu>
+    </div>
+    </form>
+  </div>
+</dialog>

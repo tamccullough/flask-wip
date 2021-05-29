@@ -1,0 +1,106 @@
+{% if theme_mode == 'dk' %}
+{% set md = 'DK' %}
+{% else %}
+{% set md = 'LT' %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{company}}!</title>
+  <meta name="author" content="Todd McCullough">
+  <meta name="description" content="Description.">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Anarchy-symbol-red.svg/600px-Anarchy-symbol-red.svg.png">
+  <meta property="og:description" content="Us Tools.">
+  <meta property="og:title" content="Us Tools">
+  <meta name="twitter:title" content="Us Tools">
+  <link rel="stylesheet" href="static/css/style{{ md }}.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="top" class="{{ theme }}">
+<div id="container">
+
+<div id="content-wrap">
+
+  <div>
+    <nav>
+      <div class="logo">
+        <a class="coiny logo" href="/">{{company}}</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/#one">section 1</a></li>
+        <li><a href="/#two">section 2</a></li>
+        <li><a href="/#three">section 3</a></li>
+        <li><a href="/about">about</a></li>
+        <form method="POST" action="{{ url_for(request.endpoint) }}">
+          {% if md == 'DK' %}
+          <li><input href="{{ url_for(request.endpoint) }}" class="nav-button" type="submit" id="theme" name="theme" value="lt"></input> DK</li>
+          {% else %}
+          <li>LT <input href="{{ url_for(request.endpoint) }}" class="nav-button" type="submit" id="theme" name="theme" value="dk"></input></li>
+          {% endif %}
+        </form>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+  </div>
+
+<button id="backToTop" class="topbutton {{ theme }}-blue textcenter">
+  <a class="link-button text-white" href="#top">TOP</a>
+</button>
+
+<!-- Top container -->
+
+
+{% block content %}
+
+{% endblock %}
+</div>
+<div class="container {{ theme }}-blue">
+  <!-- Footer -->
+  {% include "footer.html" %}
+  {% block body %}{% endblock %}
+
+  <!-- End page content -->
+</div>
+<script src="static/css/app.js"></script>
+<script src="static/css/top.js"></script>
+<script type="text/javascript">
+
+  var sendMessage = document.getElementById('sendMessage');
+  var favDialog = document.getElementById('messageDialog');
+  var outputBox = document.querySelector('output');
+  var sendBtn = document.getElementById('sendBtn');
+  var cancelBtn = document.getElementById('cancelBtn');
+
+  // email button opens the <dialog> modally
+  sendMessage.addEventListener('click', function onOpen() {
+    if (typeof favDialog.showModal === "function") {
+      favDialog.showModal();
+      favDialog.style.top = ((window.innerHeight/2.5) - (favDialog.offsetHeight/2))+'px';
+      favDialog.style.left = ((window.innerWidth/2) - (favDialog.offsetWidth/2))+'px';
+    } else {
+      alert("The <dialog> API is not supported by this browser");
+    }
+  });
+
+  // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+  cancelBtn.addEventListener('click', function() {
+    favDialog.close();
+  });
+
+</script>
+</body>
+</html>

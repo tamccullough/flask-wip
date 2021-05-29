@@ -1,0 +1,10 @@
+section,id,main,image,link,href,title1,info1,title2,info2
+land,one,Section 1,wip1,no,no,replace<br>what you want,,,
+land,two,Section 2,wip2,no,no,keep what<br>you need,,,
+land,three,Section 3,wip3,no,no,edit the csv<br>instead of html code,,,
+land,four,Section 4,wip4,no,no,rename<br>whatever,,,
+one,one,sub section 1,wip1,link 1,/link,title 1,<p>paragraph 1</p>,title 2,<p><strong>edit</strong> these areas. Write what you <em>want</em></p>
+two,two,sub section 2,wip2,link 2,/link,title 1,<p>paragraph 1</p>,title 2,<p><strong>edit</strong> these areas. Write what you <em>want</em></p>
+three,three,sub section 3,wip3,link 3,/link,title 1,<p>paragraph 1</p>,title 2,<p><strong>edit</strong> these areas. Write what you <em>want</em></p>
+four,four,sub section 4,wip4,link 4,/link,title 1,<p>paragraph 1</p>,title 2,<p><strong>edit</strong> these areas. Write what you <em>want</em></p>
+project,no,Covid-ON-Viz,covid,CovON Dashboard,/covid,Dashboard for the Covid-19 Pandemic in Ontario,Taken from the Ontario Government Open Database,-,"<p>Gets the latest data from <a href=""https://data.ontario.ca/"">https://data.ontario.ca/</a> and outputs various charts and graphs for Data Visualization.<br>The intent is to develop a system that will update once a day and dynamically generate all the charts<br>that are presented through the web app.</p>"

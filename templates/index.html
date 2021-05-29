@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- !PAGE CONTENT! -->
+{% if md == 'DK' %}
+{% set div_colour = 'clean-light' %}
+{% set div_title = 'clean-t-red' %}
+{% set div_title2 = 'clean-t-purple' %}
+{% set div_button = 'clean-red' %}
+{% else %}
+{% set div_colour = 'mono-light' %}
+{% set div_title = 'clean-t-yellow' %}
+{% set div_title2 = 'clean-t-red' %}
+{% set div_button = 'clean-yellow' %}
+{% endif %}
+<!-- app display -->
+<div class="container">
+<div class="bg_grad">
+<div class="spacer"></div>
+  <!-- BANNER -->
+  <div class="page80">
+    <!-- about display -->
+    <div class="mobile textcenter">
+      <div class="spacerL">
+        <h4 class="balsamiq text-white">basic set up for flask site</h4>
+      </div>
+    </div>
+    <div class="desktop">
+      <div>
+        <h2 class="balsamiq text-white">basic set up for flask site</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU -->
+
+  <div class="page80">
+    <div>
+      <!-- showcase section -->
+      <!-- top apps row -->
+      <div class="parent" style="display: flex;align-items: center;height:65vh;">
+        {% for i,r in landlst.iterrows() %}
+        <div class="box">
+          <a href="/#{{ r['id'] }}"><img class="center borderh" style="max-width: 60%;max-height:60%;" src="static/images/{{folder}}/{{ r['image'] }}{{ext}}" alt="svg" /></a>
+          <div class="center">
+            {% if md == 'DK' %}
+            <h2 class="balsamiq {{theme}}-t-yellow">{{ r['main'] }}</h2>
+            {% else %}
+            <h2 class="balsamiq {{theme}}-t-red">{{ r['main'] }}</h2>
+            {% endif %}
+            {{ r['title1'] | safe }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="spacerL"></div>
+    <div class="spacerL"></div>
+    <br>
+  </div>
+  <div class="page80  ">
+    <div class="mobile">
+      <div class="spacerL"></div>
+      <div class="spacerL"></div>
+      <h5 class="balsamiq textright {{ div_title }}">keep what you want - cut what you don't</h5>
+    </div>
+    <div class="desktop">
+      <h2 class="balsamiq textright {{ div_title2 }}">keep what you want - cut what you don't</h2>
+    </div>
+  </div>
+</div>
+  <!-- information section -->
+  <div style="height:8vh;"></div>
+  <div id="design" class="page80">
+
+    <!-- WEB SECTION -->
+    <div class="spacer"></div>
+    <h1 id="one" class="{{ theme }}-t-d-blue">Section 1</h1>
+    <div class="{{ div_colour }} borderh">
+      {% for i,r in weblst.iterrows() %}
+        <div>
+            <div class="parent">
+            <div class="box">
+              <h2 class="coiny-s {{ div_title }} indent">{{ r['main'] }}</h2>
+              <img class="iconxl center" src="static/images/{{folder}}/{{ r['image'] }}{{ext}}" alt="svg" />
+            </div>
+            <div class="boxl">
+                <h3 class="{{ div_title2 }}">{{ r['title1'] | safe }}</h3>
+                <p>{{ r['info1'] | safe }}</p>
+                <h3 class="{{ div_title2 }}">{{ r['title2'] | safe }}</h3>
+                <p>{{ r['info2'] | safe }}</p>
+            </div>
+            </div>
+          {% if r['link'] == 'no' %}
+            <div class="spacer"></div>
+          {% else %}
+            {% if r['href'][0] == '/' %}
+              <div class="example borderc {{ div_button }} textcenter">
+                <a class="button" href="{{ r['href'] }}">{{ r['link'] }}</a>
+              </div>
+            {% else %}
+              <div class="example borderc {{ div_button }} textcenter">
+                <a class="button" href="{{ r['href'] }}" target="_blank">{{ r['link'] }}</a>
+              </div>
+            {% endif %}
+            <div class="spacerL"></div>
+          {% endif %}
+            </div>
+          {% if i+1 == weblst.shape[0] %}
+          {% else %}
+            <hr>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- end of section -->
+
+      <!-- WEB SECTION -->
+      <div class="spacer"></div>
+      <h1 id="two" class="{{ theme }}-t-d-blue">Section 2</h1>
+      <div class="{{ div_colour }} borderh">
+        {% for i,r in dashlst.iterrows() %}
+          <div>
+              <div class="parent">
+                <div class="box">
+                  <h2 class="coiny-s {{ div_title }} indent">{{ r['main'] }}</h2>
+                  <img class="iconxl center" src="static/images/{{folder}}/{{ r['image'] }}{{ext}}" alt="svg" />
+                </div>
+                <div class="boxl">
+                    <h3 class="{{ div_title2 }}">{{ r['title1'] | safe }}</h3>
+                    <p>{{ r['info1'] | safe }}</p>
+                    <h3 class="{{ div_title2 }}">{{ r['title2'] | safe }}</h3>
+                    <p>{{ r['info2'] | safe }}</p>
+                </div>
+              </div>
+            {% if r['link'] == 'no' %}
+              <div class="spacer"></div>
+            {% else %}
+              {% if r['href'][0] == '/' %}
+                <div class="example borderc {{ div_button }} textcenter">
+                  <a class="button" href="{{ r['href'] }}">{{ r['link'] }}</a>
+                </div>
+              {% else %}
+                <div class="example borderc {{ div_button }} textcenter">
+                  <a class="button" href="{{ r['href'] }}" target="_blank">{{ r['link'] }}</a>
+                </div>
+              {% endif %}
+              <div class="spacerL"></div>
+            {% endif %}
+              </div>
+            {% if i+1 == dashlst.shape[0] %}
+            {% else %}
+              <hr>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <!-- end of section -->
+
+      <!-- DATA SECTION -->
+      <div class="spacer"></div>
+      <h1 id="three" class="{{ theme }}-t-d-blue">Section 3</h1>
+      <div class="{{ div_colour }} borderh">
+        {% for i,r in datalst.iterrows() %}
+        <div>
+          <div class="parent">
+            <div class="box">
+              <h2 class="coiny-s {{ div_title }} indent">{{ r['main'] }}</h2>
+              <img class="iconxl center" src="static/images/{{folder}}/{{ r['image'] }}{{ext}}" alt="svg" />
+            </div>
+            <div class="boxl">
+                <h3 class="{{ div_title2 }}">{{ r['title1'] | safe }}</h3>
+                <p>{{ r['info1'] | safe }}</p>
+                <h3 class="{{ div_title2 }}">{{ r['title2'] | safe }}</h3>
+                <p>{{ r['info2'] | safe }}</p>
+            </div>
+            </div>
+            {% if r['link'] == 'no' %}
+            <div class="spacer"></div>
+            {% else %}
+            {% if r['href'][0] == '/' %}
+            <div class="example borderc {{ div_button }} textcenter">
+              <a class="button" href="{{ r['href'] }}">{{ r['link'] }}</a>
+            </div>
+            {% else %}
+            <div class="example borderc {{ div_button }} textcenter">
+              <a class="button" href="{{ r['href'] }}" target="_blank">{{ r['link'] }}</a>
+            </div>
+            {% endif %}
+            <div class="spacerL"></div>
+            {% endif %}
+          </div>
+          {% if i+1 == datalst.shape[0] %}
+          {% else %}
+          <hr>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <!-- end of section -->
+
+        <!-- ML SECTION -->
+        <div class="spacer"></div>
+        <!-- ML SECTION -->
+        <div class="spacer"></div>
+        <h1 id="four" class="{{ theme }}-t-d-blue">Section 4</h1>
+        <div class="{{ div_colour }} borderh">
+          {% for i,r in mllst.iterrows() %}
+          <div>
+            <div class="parent">
+              <div class="box">
+                <h2 class="coiny-s {{ div_title }} indent">{{ r['main'] }}</h2>
+                <img class="iconxl center" src="static/images/{{folder}}/{{ r['image'] }}{{ext}}" alt="svg" />
+              </div>
+              <div class="boxl">
+                  <h3 class="{{ div_title2 }}">{{ r['title1'] | safe }}</h3>
+                  <p>{{ r['info1'] | safe }}</p>
+                  <h3 class="{{ div_title2 }}">{{ r['title2'] | safe }}</h3>
+                  <p>{{ r['info2'] | safe }}</p>
+              </div>
+              </div>
+              {% if r['link'] == 'no' %}
+              <div class="spacer"></div>
+              {% else %}
+              {% if r['href'][0] == '/' %}
+              <div class="example borderc {{ div_button }} textcenter">
+                <a class="button" href="{{ r['href'] }}">{{ r['link'] }}</a>
+              </div>
+              {% else %}
+              <div class="example borderc {{ div_button }} textcenter">
+                <a class="button" href="{{ r['href'] }}" target="_blank">{{ r['link'] }}</a>
+              </div>
+              {% endif %}
+              <div class="spacerL"></div>
+              {% endif %}
+            </div>
+            {% if i+1 == mllst.shape[0] %}
+            {% else %}
+            <hr>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <!-- end of section -->
+          <!-- end of ML section -->
+
+          <!-- end of information section -->
+          <div class="spacer"></div>
+          <div class="spacer"></div>
+
+        </div>
+        {% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- !PAGE CONTENT! -->
+{% if md == 'DK' %}
+{% set div_colour = 'clean-light' %}
+{% set div_title = 'clean-t-red' %}
+{% set div_title2 = 'clean-t-purple' %}
+{% set div_button = 'clean-red' %}
+{% else %}
+{% set div_colour = 'mono-light' %}
+{% set div_title = 'clean-t-yellow' %}
+{% set div_title2 = 'clean-t-red' %}
+{% set div_button = 'clean-yellow' %}
+{% endif %}
+<!-- app display -->
+<div class="container">
+<div class="bg_grad">
+<div class="spacer"></div>
+<div class="page80">
+<!-- about section -->
+    <div class="mobile">
+      <div class="spacer"></div>
+      <div class="borderh">
+        <div>
+          <p class="text-white">How To</p>
+            <div>
+              <h3 class="{{ div_title1 }}">All the Basics</h3>
+              <p>You <strong>should</strong> understand how to use <a class="button" href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask</a>.<br>
+                This is not meant to instruct you on how to implement it.<br>
+              It <em>is</em> meant to get you up and running with it sooner.</p>
+                <h3 class="{{ div_title1 }}">Setup</h3>
+                <p>Everything you need for a basic site is pretty much implemented here.<br>
+                Along with a few extra bells and whistles.<br>
+                If you are like me, theory only gets you so far.<br>
+                Getting your hands dirty is the best way to learn.</p>
+                  <h3 class="{{ div_title1 }}">Problems?</h3>
+                  <p>Feel free to hit me up on twitter @tamccullough</p>
+                </div>
+              <div class="spacerL"></div>
+            </div>
+          </div>
+    </div>
+    <div class="desktop">
+      <div class="spacer"></div>
+      <h1 class="text-white">How To</h1>
+      <div class="{{ div_colour }} borderh">
+        <div>
+          <div class="parent">
+            <div class="box">
+              <div class="spacerL"></div>
+              <div class="spacerL"></div>
+              <h1 class="coiny {{ div_title2 }} textcenter" style="font-size:8em;">wip</h1>
+            </div>
+            <div class="boxl">
+              <h3 class="{{ div_title2 }}">All the Basics</h3>
+              <p>You <strong>should</strong> understand how to use <a class="button" href="https://flask.palletsprojects.com/en/2.0.x/" target="_blank">Flask</a>.<br>
+                This is not meant to instruct you on how to implement it.<br>
+              It <em>is</em> meant to get you up and running with it sooner.</p>
+                <h3 class="{{ div_title2 }}">Setup</h3>
+                <p>Everything you need for a basic site is pretty much implemented here.<br>
+                Along with a few extra bells and whistles.<br>
+                If you are like me, theory only gets you so far.<br>
+                Getting your hands dirty is the best way to learn.</p>
+                  <h3 class="{{ div_title2 }}">Problems?</h3>
+                  <p>Feel free to hit me up on twitter @tamccullough</p>
+                </div>
+              </div>
+              <div class="spacerL"></div>
+            </div>
+          </div>
+    </div>
+<!-- about section -->
+  </div>
+</div>
+                  <!-- END OF mission content -->
+
+
+                  {% endblock %}
